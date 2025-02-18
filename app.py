@@ -17,9 +17,8 @@ def load_llm():
     )
     return llm
 
-# ===========================
 #   Define Agents & Tasks
-# ===========================
+
 def create_agents_and_tasks(pdf_tool):
     """Creates a Crew with the given PDF tool (if any) and a web search tool."""
     #web_search_tool = FireCrawlWebSearchTool()
@@ -89,9 +88,6 @@ def create_agents_and_tasks(pdf_tool):
     )
     return crew
 
-# ===========================
-#   Streamlit Setup
-# ===========================
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Chat history
 
@@ -120,9 +116,7 @@ def display_pdf(file_bytes: bytes, file_name: str):
     st.markdown(f"### Preview of {file_name}")
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-# ===========================
-#   Sidebar
-# ===========================
+
 with st.sidebar:
     st.header("Add Your PDF Document")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
@@ -145,9 +139,8 @@ with st.sidebar:
 
     st.button("Clear Chat", on_click=reset_chat)
 
-# ===========================
 #   Main Chat Interface
-# ===========================
+
 # st.markdown("""
 #     # Agentic RAG powered by <img src="data:image/png;base64,{}" width="170" style="vertical-align: -3px;">
 # """.format(base64.b64encode(open("assets/deep-seek.png", "rb").read()).decode()), unsafe_allow_html=True)
